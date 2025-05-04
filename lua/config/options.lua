@@ -24,6 +24,21 @@ vim.keymap.set("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { desc = "To
 -- this will set the esc key when in terminal mode to go back to normal mode
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
+-- COMMENTING KEYBINDS 
+-- pressing spacebar+/ adds a line comment at the cursor's position
+vim.keymap.set("n", "<leader>/", function()
+  require("Comment.api").toggle.linewise.current()
+end, { desc = "Toggle comment" })
+
+-- spacebar+/ with a selection (visual mode) will add comments in each selected line.
+vim.keymap.set("v", "<leader>/", function()
+  local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+  vim.api.nvim_feedkeys(esc, "nx", false)
+  require("Comment.api").toggle.linewise(vim.fn.visualmode())
+end, { desc = "Toggle comment (visual)", silent = true })
+
+
+
 
 
 
