@@ -8,7 +8,6 @@ return {
       integrations = {
         nvimtree = true,
         bufferline = true,
-        -- Add other integrations as needed
       },
     })
     vim.cmd.colorscheme("catppuccin")

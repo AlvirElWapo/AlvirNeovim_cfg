@@ -4,7 +4,6 @@ return {
   version = '1.*',
   dependencies = {
     'rafamadriz/friendly-snippets',
-    -- Optional: Add blink.compat for additional source compatibility
     { 'saghen/blink.compat', optional = true },
   },
   event = 'InsertEnter',
